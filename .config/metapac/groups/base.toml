@@ -1,0 +1,23 @@
+arch = [
+    "base",
+    "linux",
+    "linux-firmware",
+    "base-devel", # many things need base-devel even if this isn't strictly a development environment
+
+    # booting
+    "grub",
+    "efibootmgr",
+
+    # networking
+    { package = "networkmanager", hooks = { after_install = ["sudo", "systemctl", "enable", "--now", "NetworkManager.service"] } },
+
+    # general utilities
+    "paru",
+    "git",
+    "stow",
+    "rustup",
+]
+
+cargo = [
+    "metapac"
+]

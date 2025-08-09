@@ -1,0 +1,7 @@
+arch = [
+    "firefox",
+    "keepassxc",
+    "neovim",
+    "mpv",
+    "evince"
+]

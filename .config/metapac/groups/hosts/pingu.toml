@@ -1,0 +1,9 @@
+arch = [
+    "amd-ucode",
+    "vulkan-radeon",
+    "os-prober", # dual booting Windows
+    "ntfs-3g",
+
+    # graphics tablet
+    { package = "opentabletdriver", hooks = { after_install = ["bash", "-c", "sudo mkinitcpio -P; sudo rmmod wacom; systemctl --user add-wants niri.service opentabletdriver.service;"] } }
+]

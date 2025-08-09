@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# PC doesn't really need locking
+if [ "$HOSTNAME" != "pingu" ]; then
+    swaylock
+fi

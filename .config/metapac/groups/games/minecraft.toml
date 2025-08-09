@@ -1,0 +1,5 @@
+arch = [
+    "prismlauncher",
+    "jdk21-openjdk",
+    "jdk8-openjdk"
+]

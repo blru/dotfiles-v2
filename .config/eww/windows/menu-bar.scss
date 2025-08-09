@@ -1,0 +1,54 @@
+@use "../themes/catppuccin-macchiato.scss" as *;
+
+$spacing-1: 2px;
+$spacing-2: 4px;
+$spacing-3: 8px;
+$spacing-4: 16px;
+
+.menu-bar {
+    font-family: "Jetbrains Mono", sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    color: $text;
+
+    background: $base;
+    padding: 0 $spacing-4;
+}
+
+.menu-bar > box {
+    & > .logo {
+        // TODO: Hover effect?
+    }
+
+    & > .notification-area {
+        & > .date-time {
+            .time {
+                font-weight: 700;
+            }
+        }
+
+        & > .indicators {
+            & > .volume {
+                color: $blue;
+            }
+
+            & > .mic-volume {
+                color: $red;
+            }
+
+            & > .battery {
+                color: $green;
+            }
+
+            & > .memory {
+                color: $teal;
+            }
+        }
+
+        & > .tray {
+            & > .notification-button {
+                color: $text;
+            }
+        }
+    }
+}

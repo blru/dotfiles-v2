@@ -1,0 +1,168 @@
+(defvar show_full_time false)
+(defvar show_alternative_date true)
+(defpoll default_sink
+    :interval "1s"
+    `~/.scripts/desktop-environment/get-volume-info @DEFAULT_SINK@`)
+(defpoll default_source
+    :interval "1s"
+    `~/.scripts/desktop-environment/get-volume-info @DEFAULT_SOURCE@`)
+
+(defwindow menu-bar
+    :monitor {["<primary>", 0]}
+    :geometry (geometry
+            :x "0px"
+            :y "0px"
+            :width "100%"
+            :height "32px"
+            :anchor "bottom center")
+    :stacking "fg"
+    :exclusive true
+    :focusable "none"
+    :namespace "blru-menu-bar"
+    (menu-bar-inner)
+)
+
+(defwidget menu-bar-inner []
+    (centerbox
+        :orientation "h"
+        (menu-bar-logo)
+        ""
+        (menu-bar-notification-area)
+    ))
+
+(defwidget menu-bar-logo []
+    (eventbox
+        :timeout "1000ms"
+        :halign "start"
+        :cursor "pointer"
+        :class "logo"
+        (label
+            :text "󰣇"
+)))
+
+; It's called the notification area because that's what Microsoft uses to refer
+; to the area of the taskbar that contains the clock, system tray and indicators
+; like volume and battery level :)
+(defwidget menu-bar-notification-area []
+    (box
+        :halign "end"
+        :orientation "h"
+        :spacing 16
+        :space-evenly false
+        :class "notification-area"
+        (menu-bar-notification-area-tray)
+        (menu-bar-notification-area-separator)
+        (menu-bar-notification-area-indicators)
+        (menu-bar-notification-area-separator)
+        (menu-bar-notification-area-date-time)
+))
+
+(defwidget menu-bar-notification-area-separator []
+    (label
+        :text "ǀ"
+        :class "separator"
+    )
+)
+
+(defwidget menu-bar-notification-area-date-time []
+    (box
+        :space-evenly false
+        :spacing 8
+        :class "date-time"
+        (eventbox
+            :cursor "pointer"
+            :onclick "${EWW_CMD} update show_alternative_date=${!show_alternative_date}"
+            :tooltip "Toggle Alternative Date"
+            (label
+                :class "date"
+                :text {formattime(EWW_TIME, show_alternative_date ? "%b %m, %Y" : "%Y-%m-%d", "America/New_York")}))
+        (eventbox
+            :cursor "pointer"
+            :onclick "${EWW_CMD} update show_full_time=${!show_full_time}"
+            :tooltip "Toggle Seconds"
+            (label
+                :class "time"
+                :text {formattime(EWW_TIME, show_full_time ? "%H:%M:%S" : "%H:%M", "America/New_York")}))
+))
+
+(defwidget menu-bar-notification-area-tray []
+    (box
+        :orientation "h"
+        :spacing 12
+        :space-evenly false
+        :orientation "h"
+        :class "tray"
+        (systray
+            :orientation "h"
+            :spacing 12
+            :space-evenly false
+            :icon-size 14
+        )
+        (eventbox
+            :timeout "1000ms"
+            :onclick "swaync-client -t -sw"
+            :halign "start"
+            :cursor "pointer"
+            :class "notification-button"
+            :tooltip "Open Notification Center"
+            (label
+                :text "󰂚")
+            )
+    )
+)
+
+(defwidget menu-bar-notification-area-indicators []
+    (box
+        :orientation "h"
+        :spacing 12
+        :space-evenly false
+        :orientation "h"
+        :class "indicators"
+        (menu-bar-notification-area-indicator
+            :icon { default_sink.is_muted ? "󰝟" : "󰕾" }
+            :value "${default_sink.volume}%"
+            :class "volume"
+            :tooltip "Volume")
+        (menu-bar-notification-area-indicator
+            :icon { default_source.is_muted ? "󰍭" : "󰍬" }
+            :value "${default_source.volume}%"
+            :class "mic-volume"
+            :tooltip "Mic Volume")
+        (menu-bar-notification-area-battery-indicator
+            :battery {jq(EWW_BATTERY ?: `{}`, '[.[]][0]')})
+        (menu-bar-notification-area-indicator
+            :icon "󰍛"
+            :value "${floor(EWW_RAM.used_mem / EWW_RAM.total_mem * 100)}%"
+            :class "memory"
+            :tooltip "Memory")
+    )
+)
+
+(defwidget menu-bar-notification-area-indicator [icon value class ?tooltip ?visible]
+    (box
+        :orientation "h"
+        :spacing 6
+        :space-evenly false
+        :orientation "h"
+        :tooltip tooltip
+        :visible {visible ?: true}
+        :class "indicator ${class}"
+        (label
+            :width 16 ; fixed width to make sure the layout doesn't change when the icon changes
+            :text icon
+            :class "icon")
+        (label
+            :width 28 ; fixed width to make sure the layout doesn't change when the number of characters change
+            :text value
+            :class "value")
+    )
+)
+
+(defwidget menu-bar-notification-area-battery-indicator [battery]
+        (menu-bar-notification-area-indicator
+            :visible {EWW_BATTERY != ""}
+            :icon {battery?.status == "Charging" ? "󰂄" : "󰂀"}
+            :value "${battery?.capacity}%"
+            :class "battery"
+            :tooltip "Battery")
+)

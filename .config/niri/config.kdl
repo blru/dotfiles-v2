@@ -1,0 +1,258 @@
+// This config is in the KDL format: https://kdl.dev
+// "/-" comments out the following node.
+// Check the wiki for a full description of the configuration:
+// https://github.com/YaLTeR/niri/wiki/Configuration:-Introduction
+
+screenshot-path "~/pictures/screenshots/%Y-%m-%d--%H-%M-%S.png"
+prefer-no-csd
+
+environment {
+    DISPLAY ":0" // Would've loved to use uwsm to set this, but DISPLAY is automatically removed if niri-session is started
+}
+
+input {
+    keyboard {
+        track-layout "global"
+        repeat-delay 600
+        repeat-rate 25
+
+        xkb {
+            options "caps:escape, compose:ralt"
+        }
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+        accel-speed 0.0
+        accel-profile "adaptive"
+        scroll-method "two-finger"
+    }
+
+    mouse {
+        accel-profile "flat"
+        scroll-factor 1
+    }
+
+    trackpoint {
+        off
+    }
+
+    warp-mouse-to-focus mode="center-xy"
+    focus-follows-mouse max-scroll-amount="10%"
+    mod-key "Super"
+}
+
+layout {
+    gaps 6
+    center-focused-column "never"
+    empty-workspace-above-first
+    default-column-display "normal"
+    background-color "transparent"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+    }
+
+    preset-window-heights {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 0.75
+    }
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        off
+    }
+
+    border {
+        width 1
+        active-color "#5b6078"
+        inactive-color "#363a4f"
+        urgent-color "#BD9191"
+    }
+
+    tab-indicator {
+        off
+    }
+}
+
+animations {
+    slowdown 0.5
+}
+
+binds {
+    // General
+    Mod+Shift+Slash { show-hotkey-overlay; }
+    Mod+O repeat=false { toggle-overview; }
+    Mod+M allow-when-locked=true { spawn "systemctl" "suspend"; }
+    Mod+Shift+M { quit; }
+    Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
+
+    // Quick execute
+    Mod+Q hotkey-overlay-title="Open a Terminal" { spawn "uwsm" "app" "--" "kitty"; }
+    Mod+W hotkey-overlay-title="Open the File Explorer" { spawn "uwsm" "app" "--" "kitty" "-e" "yazi"; }
+    Mod+E hotkey-overlay-title="Open Drun" { spawn "rofi" "-show" "drun" "-run-command" "uwsm app -- {cmd}" ; }
+    Mod+Shift+E hotkey-overlay-title="Open Calculator" { spawn "rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort" ; }
+    Mod+I hotkey-overlay-title="Pick color" { spawn "bash" "-c" "niri msg pick-color | tail -c 8 | wl-copy" ; }
+    Mod+T hotkey-overlay-title="Toggle menu bar" { spawn "eww" "open" "--toggle" "menu-bar"; }
+
+    // Window manipulation
+    Mod+C { close-window; }
+
+    // Window and workspace selection
+    Mod+H     { focus-column-left; }
+    Mod+L     { focus-column-right; }
+    Mod+J     { focus-window-or-workspace-down; }
+    Mod+K     { focus-window-or-workspace-up; }
+
+    // Window movement
+    Mod+Shift+H     { move-column-left; }
+    Mod+Shift+L     { move-column-right; }
+    Mod+Shift+J     { move-window-down-or-to-workspace-down; }
+    Mod+Shift+K     { move-window-up-or-to-workspace-up; }
+    Mod+BracketLeft  { consume-or-expel-window-left; }
+    Mod+BracketRight { consume-or-expel-window-right; }
+    Mod+Comma  { consume-window-into-column; } // To be honest, I might remove the two above
+    Mod+Period { expel-window-from-column; }
+
+    // Workspace navigation
+    // We start at 2 because of `layout:empty-workspace-above-first`
+    Mod+1 { focus-workspace 2; }
+    Mod+2 { focus-workspace 3; }
+    Mod+3 { focus-workspace 4; }
+    Mod+4 { focus-workspace 5; }
+    Mod+5 { focus-workspace 6; }
+    Mod+6 { focus-workspace 7; }
+    Mod+7 { focus-workspace 8; }
+    Mod+8 { focus-workspace 9; }
+    Mod+9 { focus-workspace 10; }
+
+    // Window workspace movement
+    Mod+Shift+1 { move-column-to-workspace 2; }
+    Mod+Shift+2 { move-column-to-workspace 3; }
+    Mod+Shift+3 { move-column-to-workspace 4; }
+    Mod+Shift+4 { move-column-to-workspace 5; }
+    Mod+Shift+5 { move-column-to-workspace 6; }
+    Mod+Shift+6 { move-column-to-workspace 7; }
+    Mod+Shift+7 { move-column-to-workspace 8; }
+    Mod+Shift+8 { move-column-to-workspace 9; }
+    Mod+Shift+9 { move-column-to-workspace 10; }
+
+    // NOTE: Mouse binds are basically never used. Just use the keyboard :)
+
+    // Workspace navigation (mouse)
+    Mod+WheelScrollDown      cooldown-ms=150 { focus-workspace-down; }
+    Mod+WheelScrollUp        cooldown-ms=150 { focus-workspace-up; }
+
+    // Window movement (mouse)
+    Mod+Ctrl+WheelScrollRight { move-column-right; }
+    Mod+Ctrl+WheelScrollLeft  { move-column-left; }
+    Mod+Ctrl+WheelScrollDown cooldown-ms=150 { move-column-to-workspace-down; }
+    Mod+Ctrl+WheelScrollUp   cooldown-ms=150 { move-column-to-workspace-up; }
+
+    // Window selection (mouse)
+    Mod+WheelScrollRight      { focus-column-right; }
+    Mod+WheelScrollLeft       { focus-column-left; }
+    Mod+Shift+WheelScrollDown      { focus-column-right; }
+    Mod+Shift+WheelScrollUp        { focus-column-left; }
+    Mod+Ctrl+Shift+WheelScrollDown { move-column-right; }
+    Mod+Ctrl+Shift+WheelScrollUp   { move-column-left; }
+
+    // Window resizing
+    Mod+D { switch-preset-column-width; }
+    Mod+Shift+D { switch-preset-window-height; }
+    Mod+X { set-column-width "50%"; } // This is supposed to be a reset-column-width since the default is 50%
+    Mod+Shift+X { reset-window-height; }
+    Mod+Z { maximize-column; }
+    Mod+Shift+Z { fullscreen-window; }
+    Mod+Ctrl+Z { expand-column-to-available-width; }
+    Mod+Minus { set-column-width "-10%"; }
+    Mod+Equal { set-column-width "+10%"; }
+    Mod+Shift+Minus { set-window-height "-10%"; }
+    Mod+Shift+Equal { set-window-height "+10%"; }
+
+    // Window miscellaneous
+    Mod+V { toggle-window-floating; }
+    Mod+Shift+V { switch-focus-between-floating-and-tiling; }
+
+    // Screenshots
+    Print { screenshot; }
+    Ctrl+Print { screenshot-screen; }
+    Alt+Print { screenshot-window; }
+
+
+    // Audio sink controls (speakers)
+    XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
+    XF86AudioLowerVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%-"; }
+    XF86AudioMute allow-when-locked=true { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SINK@" "toggle"; }
+
+    // Audio source controls (microphone)
+    Shift+XF86AudioRaiseVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "1%+"; }
+    Shift+XF86AudioLowerVolume { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SOURCE@" "1%-"; }
+    Shift+XF86AudioMute { spawn "wpctl" "set-mute" "@DEFAULT_AUDIO_SOURCE@" "toggle"; }
+
+    // Brightness controls
+    XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "set" "1%+"; }
+    XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "set" "1%-"; }
+
+    // Player control
+    XF86AudioPlay { spawn "playerctl" "play-pause"; }
+    XF86AudioPrev { spawn "playerctl" "previous"; }
+    XF86AudioNext { spawn "playerctl" "next"; }
+}
+
+overview {
+    backdrop-color "#232324"
+    zoom 0.4
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+clipboard {
+    disable-primary // Disable middle-mouse paste
+}
+
+// Make wallpaper stationary, rather than moving with workspaces
+layer-rule {
+    match namespace="^swww-daemon$"
+    place-within-backdrop true
+}
+
+window-rule {
+    geometry-corner-radius 4
+    clip-to-geometry true
+}
+
+// Firefox picture-in-picture
+window-rule {
+    match app-id=r#"firefox$"# title="^Picture-in-Picture$"
+    open-floating true
+}
+
+// Hide password manager
+window-rule {
+    match app-id=r#"^org\.keepassxc\.KeePassXC$"#
+
+    block-out-from "screen-capture"
+}
+
+// Transparent terminal
+window-rule {
+    match app-id=r#"^kitty$"#
+
+    draw-border-with-background false
+    opacity 0.97
+}

@@ -1,0 +1,14 @@
+arch = [
+    "yazi",
+    "bat",
+    "fastfetch",
+    "man-db",
+    "jq",
+    "unzip",
+    "ripgrep",
+    "fzy",
+    "playerctl",
+    "reflector",
+    "peaclock",
+    "libqalculate"
+]

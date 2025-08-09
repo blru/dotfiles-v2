@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+#
+# IF YOU ARE RUNNING THIS SCRIPT PLEASE READ THE INSTRUCTIONS IN THE README
+set -e
+
+# Setting-up dotfiles
+cd ~/.dotfiles
+stow .
+cd -
+
+# Installing packages
+sudo pacman -S rustup
+rustup install stable
+cargo install metapac
+~/.cargo/bin/metapac sync # This also sets up systemd services
+~/.scripts/setup/install-eww
+
+echo "Setup was successful. To enter the compositor, execute `uwsm start niri.desktop`"

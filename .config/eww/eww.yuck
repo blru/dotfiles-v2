@@ -1,0 +1,4 @@
+; NOTE: The naming convetion for window-specific widgets is to prefix
+; them with the window's name to prevent naming conflicts
+
+(include "./windows/menu-bar.yuck")

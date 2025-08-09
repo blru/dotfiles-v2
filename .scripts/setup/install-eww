@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+set -e
+
+install_dir="/usr/local/bin"
+
+git clone https://github.com/elkowar/eww /tmp/eww-build
+cd /tmp/eww-build
+
+cargo build --release --no-default-features --features=wayland
+sudo mv target/release/eww /usr/local/bin/
+sudo chmod +x /usr/local/bin
+
+# If you change install_dir make sure to reflect that in ~/.config/systemd/user/eww.service
+systemctl --user add-wants niri.service eww.service
+
+echo "Eww has been installed to $install_dir!"

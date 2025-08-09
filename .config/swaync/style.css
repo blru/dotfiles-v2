@@ -1,0 +1,20 @@
+@import url("./themes/catppuccin-macchiato.css");
+
+* {
+    font-size: 14px;
+    font-family: "JetBrains Mono";
+    transition: 200ms;
+}
+
+.notification-background {
+    margin: 4px;
+    border-radius: 4px;
+}
+
+.control-center {
+    border-radius: 4px;
+}
+
+.control-center .notification-background {
+    border-radius: 4px;
+}

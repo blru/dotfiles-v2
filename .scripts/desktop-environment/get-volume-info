@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+id=$1
+raw_info=$(wpctl get-volume $id)
+volume=$(echo $raw_info | awk '{ print $2 * 100}')
+is_muted=$(grep -q 'MUTED' <<< $raw_info && echo "true" || echo "false")
+
+cat << EOF
+{
+    "volume": $volume,
+    "is_muted": $is_muted
+}
+EOF
