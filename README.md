@@ -2,6 +2,8 @@
 
 These are the dotfiles I daily drive.
 
+![Preview](./.github/assets/preview.png)
+
 ## Setup
 
 To use these dotfiles on a fresh installation of Arch Linux do the following steps:
@@ -13,6 +15,6 @@ To use these dotfiles on a fresh installation of Arch Linux do the following ste
 2. Install [GNU Stow](https://archlinux.org/packages/extra/any/stow/).
 3. Install the [Paru AUR helper](https://github.com/Morganamilo/paru). If you wish to use a different one, look inside of [~/.dotfiles/.config/metapac/config.toml](~/.dotfiles/.config/metapac/config.toml) and change the `arch_package_manager` property to your desired helper.
 4. In the aforementioned config, change the `pingu` hostname to the hostname your machine uses.
-   5. Run `cd ~/.dotfiles; stow .` This will move all the files into the right places.
-5. Run `~/.scripts/setup/setup`. This script should install eww and metapac, install all the required packages and start the various systemd services.
-6. If everything went well, you can enter the compositor by logging into your user on tty1.
+5. Run `cd ~/.dotfiles; stow .`. This will move all the files into the right places.
+6. Run `~/.scripts/setup/setup`. This script should install eww and metapac, install all the required packages and start the various systemd services.
+7. If everything went well, you can enter the compositor by logging into your user on tty1.
