@@ -75,7 +75,7 @@
             :tooltip "Toggle Alternative Date"
             (label
                 :class "date"
-                :text {formattime(EWW_TIME, show_alternative_date ? "%b %m, %Y" : "%Y-%m-%d", "America/New_York")}))
+                :text {formattime(EWW_TIME, show_alternative_date ? "%b %d, %Y" : "%Y-%m-%d", "America/New_York")}))
         (eventbox
             :cursor "pointer"
             :onclick "${EWW_CMD} update show_full_time=${!show_full_time}"
