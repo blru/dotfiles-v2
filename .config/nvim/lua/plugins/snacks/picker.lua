@@ -188,7 +188,7 @@ return {
                             mode = { "i", "n" },
                         },
                         [keymaps.common.preview_down.bind] = {
-                            "list_scroll_down",
+                            "preview_scroll_down",
                             mode = { "i", "n" },
                         },
                         [keymaps.common.open_split.bind] = {
