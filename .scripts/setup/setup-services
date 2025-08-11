@@ -6,4 +6,6 @@ systemctl --user add-wants niri.service swww.service
 systemctl --user add-wants niri.service swaync.service
 systemctl --user add-wants niri.service swayidle.service
 
+systemctl --user add-wants niri.service eww.service
+
 echo "Services have been setup."
