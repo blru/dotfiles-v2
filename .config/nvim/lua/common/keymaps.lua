@@ -243,4 +243,91 @@ return {
             mode = { "n" },
         },
     },
+    dap = { -- Keymaps almost entirely copied from https://www.lazyvim.org/extras/dap/core
+        set_conditional_breakpoint = {
+            bind = "<leader>dB",
+            description = "Breakpoint Condition",
+            mode = { "n" },
+        },
+        toggle_breakpoint = {
+            bind = "<leader>db",
+            description = "Toggle Breakpoint",
+            mode = { "n" },
+        },
+        continue = {
+            bind = "<leader>dc",
+            description = "Run/Continue",
+            mode = { "n" },
+        },
+        run_with_args = {
+            bind = "<leader>da",
+            description = "Run with Args",
+            mode = { "n" },
+        },
+        run_to_cursor = {
+            bind = "<leader>dC",
+            description = "Run to Cursor",
+            mode = { "n" },
+        },
+        goto_line_without_executing = {
+            bind = "<leader>dg",
+            description = "Go to Line (No Execute)",
+            mode = { "n" },
+        },
+        step_into = {
+            bind = "<leader>di",
+            description = "Step Into",
+            mode = { "n" },
+        },
+        down = {
+            bind = "<leader>dj",
+            description = "Down",
+            mode = { "n" },
+        },
+        up = {
+            bind = "<leader>dk",
+            description = "Up",
+            mode = { "n" },
+        },
+        run_last = {
+            bind = "<leader>dl",
+            description = "Run Last",
+            mode = { "n" },
+        },
+        step_out = {
+            bind = "<leader>do",
+            description = "Step Out",
+            mode = { "n" },
+        },
+        step_over = {
+            bind = "<leader>dO",
+            description = "Step Over",
+            mode = { "n" },
+        },
+        pause = {
+            bind = "<leader>dP",
+            description = "Pause",
+            mode = { "n" },
+        },
+        toggle_repl = {
+            bind = "<leader>dr",
+            description = "Toggle REPL",
+            mode = { "n" },
+        },
+        session = {
+            bind = "<leader>ds",
+            description = "Session",
+            mode = { "n" },
+        },
+        terminate = {
+            bind = "<leader>dt",
+            description = "Terminate",
+            mode = { "n" },
+        },
+        widgets = {
+            bind = "<leader>dw",
+            description = "Widgets",
+            mode = { "n" },
+        },
+    },
 }

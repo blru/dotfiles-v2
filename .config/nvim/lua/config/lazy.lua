@@ -35,6 +35,7 @@ require("lazy").setup({
         { import = "plugins/mason" },
         { import = "plugins/snacks" },
         { import = "plugins/lsp" },
+        { import = "plugins/dap" },
         { import = "plugins/completion" },
         { import = "plugins/colorscheme" },
     },
