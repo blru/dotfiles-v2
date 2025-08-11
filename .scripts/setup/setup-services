@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+systemctl --user add-wants niri.service plasma-polkit-agent.service
+systemctl --user add-wants niri.service xwayland-satellite.service
+systemctl --user add-wants niri.service swww.service
+systemctl --user add-wants niri.service swaync.service
+systemctl --user add-wants niri.service swayidle.service
+
+echo "Services have been setup."

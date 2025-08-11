@@ -14,5 +14,6 @@ rustup install stable
 cargo install metapac
 ~/.cargo/bin/metapac sync # This also sets up systemd services
 ~/.scripts/setup/install-eww
+~/.scripts/setup/setup-services
 
 echo "Setup was successful. To enter the compositor, execute `uwsm start niri.desktop`"

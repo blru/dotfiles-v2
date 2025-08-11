@@ -12,11 +12,11 @@ arch = [
     "swaylock",
 
     # services
-    { package = "polkit-kde-agent", hooks = { after_install = ["systemctl", "--user", "add-wants", "niri.service", "plasma-polkit-agent.service"] } },
-    { package = "xwayland-satellite", hooks = { after_install = ["systemctl", "--user", "add-wants", "niri.service", "xwayland-satellite.service"] } },
-    { package = "swww", hooks = { after_install = ["systemctl", "--user", "add-wants", "niri.service", "swww.service"] } },
-    { package = "swaync", hooks = { after_install = ["systemctl", "--user", "add-wants", "niri.service", "swaync.service"] } },
-    { package = "swayidle", hooks = { after_install = ["systemctl", "--user", "add-wants", "niri.service", "swayidle.service"] } },
+    "polkit-kde-agent",
+    "xwayland-satellite",
+    "swww",
+    "swaync",
+    "swayidle",
 
     # fonts
     "noto-fonts",
