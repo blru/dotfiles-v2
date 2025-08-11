@@ -24,6 +24,10 @@ return {
             -- Stylua
             lua = { "stylua" },
             luau = { "stylua" },
+
+            -- Clang Format
+            c = { "clang-format" },
+            cpp = { "clang-format" },
         },
         format_on_save = {},
         default_format_opts = {

@@ -3,18 +3,23 @@ return {
     dependencies = { "mason-org/mason.nvim" },
     opts = {
         ensure_installed = {
-            -- formatters
+            -- Formatters
             "beautysh",
             "prettier",
             "stylua",
+            "clang-format",
 
-            -- lsps
+            -- LSPs
             "bash-language-server",
             "lua-language-server",
             "css-lsp",
             "luau-lsp",
             "emmet-language-server",
             "json-lsp",
+            "clangd",
+
+            -- DAPs
+            "codelldb",
         },
         run_on_start = false,
     },

@@ -53,6 +53,7 @@ return {
             ["cssls"] = {},
             ["emmet_language_server"] = {},
             ["jsonls"] = {},
+            ["clangd"] = {},
         }
 
         for server, configuration in pairs(language_servers) do
