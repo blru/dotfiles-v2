@@ -28,6 +28,7 @@ return {
             "zig",
             "yuck",
             "bash",
+            "mermaid",
         }
 
         nvim_treesitter.install(languages):wait(10 * 60 * 1000)
