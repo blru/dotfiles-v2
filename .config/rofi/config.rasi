@@ -180,6 +180,8 @@ element-icon {
     text-color:       inherit;
 }
 window {
+    width: 700px;
+    height: 400px;
     padding:          5;
     background-color: @background;
     border:           1;
