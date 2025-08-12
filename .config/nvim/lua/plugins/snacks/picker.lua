@@ -6,7 +6,7 @@ return {
     "folke/snacks.nvim",
     keys = {
         keymaps_helpers.make_lazy(keymaps.snacks.picker.find_files, function()
-            Snacks.picker.files()
+            Snacks.picker.files({ hidden = true })
         end),
         keymaps_helpers.make_lazy(
             keymaps.snacks.picker.find_buffers,
