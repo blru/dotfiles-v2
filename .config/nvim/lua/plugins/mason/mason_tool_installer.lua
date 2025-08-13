@@ -17,6 +17,7 @@ return {
             "emmet-language-server",
             "json-lsp",
             "clangd",
+            "zig",
 
             -- DAPs
             "codelldb",

@@ -1,6 +1,9 @@
 arch = [
     "nvm",
     "tree-sitter-cli", # Dependency for nvim-treesitter's main branch
+    "github-cli",
+
+    # Language specific
     "clang",
-    "github-cli"
+    "zig"
 ]

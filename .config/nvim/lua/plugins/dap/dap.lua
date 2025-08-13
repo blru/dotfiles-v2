@@ -115,6 +115,7 @@ return {
         }
         dap.configurations.c = dap.configurations.cpp
         dap.configurations.rust = dap.configurations.cpp
+        dap.configurations.zig = dap.configurations.cpp
 
         -- TODO: Maybe move this to common.icons in the future, although these are also colors
         local signs = {
