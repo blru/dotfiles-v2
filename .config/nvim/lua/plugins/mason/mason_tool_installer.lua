@@ -5,18 +5,19 @@ return {
         ensure_installed = {
             -- Formatters
             "beautysh",
+            "clang-format",
             "prettier",
             "stylua",
-            "clang-format",
 
             -- LSPs
             "bash-language-server",
-            "lua-language-server",
+            "clangd",
             "css-lsp",
-            "luau-lsp",
             "emmet-language-server",
             "json-lsp",
-            "clangd",
+            "lua-language-server",
+            "luau-lsp",
+            "typescript-lanaguage-server",
             "zig",
 
             -- DAPs

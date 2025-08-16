@@ -55,6 +55,7 @@ return {
             ["jsonls"] = {},
             ["clangd"] = {},
             ["zls"] = {},
+            ["ts_ls"] = {},
         }
 
         for server, configuration in pairs(language_servers) do
