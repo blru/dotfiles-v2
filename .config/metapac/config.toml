@@ -1,7 +1,11 @@
 enabled_backends = ["arch", "cargo", "flatpak"]
-arch_package_manager = "paru"
-flatpak_default_systemwide = true
 hostname_groups_enabled = true
+
+[arch]
+package_manager = "paru"
+
+[flatpak]
+systemwide = true
 
 [hostname_groups]
 "pingu" = [
