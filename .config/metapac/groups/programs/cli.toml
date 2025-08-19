@@ -10,5 +10,7 @@ arch = [
     "playerctl",
     "reflector",
     "peaclock",
-    "libqalculate"
+    "libqalculate",
+    "yt-dlp",
+    "7zip"
 ]
