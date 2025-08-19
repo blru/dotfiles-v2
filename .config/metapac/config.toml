@@ -16,6 +16,7 @@ systemwide = true
     "programs/general",
     "programs/gaming",
     "programs/development",
+    "programs/office",
     "programs/testing",
     "games/general",
     "games/roblox",
@@ -28,5 +29,7 @@ systemwide = true
     "desktop-environment",
     "programs/cli",
     "programs/general",
+    "programs/office",
+    "programs/school",
     "hosts/real-huawei-chromebook",
 ]
