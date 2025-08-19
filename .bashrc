@@ -5,7 +5,9 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-source /usr/share/nvm/init-nvm.sh
+if test -f /usr/share/nvm/init-nvm.sh; then
+    source /usr/share/nvm/init-nvm.sh
+fi
 
 alias peaclock="peaclock --config-dir ~/.config/peaclock"
 alias cd-config='cd ~/.dotfiles/.config'
