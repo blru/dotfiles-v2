@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+# TODO: Make it so that the service are only enabled if the package is installed
+
+systemctl enable --user --now pipewire.service
+systemctl enable --user --now pipewire-pulse.service
+systemctl enable --user --now wireplumber.service
+
 systemctl --user add-wants niri.service plasma-polkit-agent.service
 systemctl --user add-wants niri.service xwayland-satellite.service
 systemctl --user add-wants niri.service swww.service

@@ -1,8 +1,8 @@
 arch = [
     "sof-firmware",
-    { package = "pipewire", hooks = { after_install = ["sudo", "systemctl", "enable", "--now", "pipewire.service"] } },
-    { package = "pipewire-pulse", hooks = { after_install = ["sudo", "systemctl", "enable", "--now", "pipewire.service"] } },
+    "pipewire",
+    "pipewire-pulse",
     "pipewire-alsa",
     "pipewire-jack",
-    { package = "wireplumber", hooks = { after_install = ["sudo", "systemctl", "enable", "--now", "wireplumber.service"] } },
+    "wireplumber"
 ]

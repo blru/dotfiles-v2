@@ -9,7 +9,7 @@ arch = [
     "efibootmgr",
 
     # networking
-    { package = "networkmanager", hooks = { after_install = ["sudo", "systemctl", "enable", "--now", "NetworkManager.service"] } },
+    "networkmanager",
 
     # general utilities
     "paru",
