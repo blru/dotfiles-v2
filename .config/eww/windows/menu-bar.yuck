@@ -33,6 +33,7 @@
 (defwidget menu-bar-logo []
     (eventbox
         :timeout "1000ms"
+        :onclick "~/.scripts/desktop-environment/open-power-menu&"
         :halign "start"
         :cursor "pointer"
         :class "logo"
