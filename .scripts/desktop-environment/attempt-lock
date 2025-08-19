@@ -2,5 +2,5 @@
 
 # PC doesn't really need locking
 if [ "$HOSTNAME" != "pingu" ]; then
-    swaylock
+    swaylock -f
 fi
