@@ -4,5 +4,9 @@ arch = [
 
 flatpak = [
     "org.vinegarhq.Sober", # Roblox Player, Sober is closed source hopefully it's not malicious :D
-    "org.vinegarhq.Vinegar" # Roblox Studio
+    "org.vinegarhq.Vinegar", # Roblox Studio
+]
+
+cargo = [
+    "rojo"
 ]
