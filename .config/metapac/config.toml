@@ -4,7 +4,7 @@ flatpak_default_systemwide = true
 hostname_groups_enabled = true
 
 [hostname_groups]
-pingu = [
+"pingu" = [
     "base",
     "audio",
     "desktop-environment",
@@ -12,8 +12,17 @@ pingu = [
     "programs/general",
     "programs/gaming",
     "programs/development",
+    "programs/testing",
     "games/general",
     "games/roblox",
     "games/minecraft",
     "hosts/pingu",
+]
+"real-huawei-chromebook" = [
+    "base",
+    "audio",
+    "desktop-environment",
+    "programs/cli",
+    "programs/general",
+    "hosts/real-huawei-chromebook",
 ]
