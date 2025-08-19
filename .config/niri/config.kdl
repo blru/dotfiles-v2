@@ -91,6 +91,7 @@ binds {
     Mod+O repeat=false { toggle-overview; }
     Mod+M allow-when-locked=true { spawn "systemctl" "suspend"; }
     Mod+Shift+M { quit; }
+    Mod+Ctrl+M { spawn "uwsm" "app" "--" "swaylock"; }
     Mod+Escape allow-inhibiting=false { toggle-keyboard-shortcuts-inhibit; }
 
     // Quick execute
