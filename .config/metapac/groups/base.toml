@@ -12,6 +12,7 @@ arch = [
     "networkmanager",
 
     # general utilities
+    "sudo",
     "paru",
     "git",
     "stow",
