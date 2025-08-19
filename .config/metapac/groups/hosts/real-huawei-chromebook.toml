@@ -1,3 +1,4 @@
 arch = [
-    "intel-ucode"
+    "intel-ucode",
+    "brightnessctl"
 ]
