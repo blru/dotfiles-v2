@@ -1,5 +1,5 @@
 before-sleep '~/.scripts/desktop-environment/attempt-lock'
 after-resume 'niri msg action power-on-monitors'
-timeout 60 '~/.scripts/desktop-environment/attempt-lock'
 timeout 300 'niri msg action power-off-monitors' resume 'niri msg action power-on-monitors'
+timeout 315 '~/.scripts/desktop-environment/attempt-lock'
 timeout 600 'systemctl suspend'
