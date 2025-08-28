@@ -21,4 +21,19 @@ return {
             port = 3667,
         },
     },
+    config = function(opts)
+        require("luau-lsp").config(opts)
+
+        vim.lsp.config("luau-lsp", {
+            settings = {
+                ["luau-lsp"] = {
+                    completion = {
+                        imports = {
+                            enabled = true,
+                        },
+                    },
+                },
+            },
+        })
+    end,
 }
