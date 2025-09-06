@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+tmp_dir=/tmp/gtk-theme-setup
+mkdir -p "$tmp_dir"
+cd "$tmp_dir"
+
+curl -LsSO "https://raw.githubusercontent.com/catppuccin/gtk/v1.0.3/install.py"
+python3 ./install.py macchiato blue
+
+echo "Catppuccin theme for gtk was installed."
