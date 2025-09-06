@@ -6,19 +6,6 @@
 screenshot-path "~/pictures/screenshots/%Y-%m-%d--%H-%M-%S.png"
 prefer-no-csd
 
-environment {
-    XCURSOR_SIZE "24"
-    XCURSOR_THEME "Adwaita"
-    SDL_VIDEODRIVER "wayland"
-    QT_AUTO_SCREEN_SCALE_FACTOR "1"
-    QT_QPA_PLATFORM "wayland;xcb"
-    QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
-    QT_QPA_PLATFORMTHEME "qt5ct"
-    QT_STYLE_OVERRIDE "Adwaita-Dark"
-    GDK_BACKEND "wayland,x11,*"
-    GTK_THEME "catppuccin-macchiato-blue-standard+default"
-}
-
 input {
     keyboard {
         track-layout "global"
@@ -106,7 +93,7 @@ binds {
     // Quick execute
     Mod+Q hotkey-overlay-title="Open a Terminal" { spawn "kitty"; }
     Mod+W hotkey-overlay-title="Open the File Explorer" { spawn "kitty" "-e" "yazi"; }
-    Mod+E hotkey-overlay-title="Open Drun" { spawn "rofi" "-show" "drun"; }
+    Mod+E hotkey-overlay-title="Open Drun" { spawn "rofi" "-show" "drun" ; }
     Mod+Shift+E hotkey-overlay-title="Open Calculator" { spawn "rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort"; }
     Mod+I hotkey-overlay-title="Pick color" { spawn "bash" "-c" "niri msg pick-color | tail -c 8 | wl-copy"; }
     Mod+T hotkey-overlay-title="Toggle menu bar" { spawn "eww" "open" "--toggle" "menu-bar"; }
