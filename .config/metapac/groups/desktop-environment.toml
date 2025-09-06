@@ -2,7 +2,6 @@ arch = [
     "niri",
     "qt5-wayland",
     "kitty",
-    "uwsm",
     "wl-clipboard",
     "xdg-desktop-portal",
     "xdg-desktop-portal-gtk",
@@ -10,6 +9,7 @@ arch = [
     "adwaita-qt5-git",
     "adwaita-qt6-git",
     "swaylock",
+    "lemurs",
 
     # services
     "polkit-kde-agent",
@@ -25,7 +25,7 @@ arch = [
     "ttf-jetbrains-mono",
 
     # shell
-    "rofi-wayland",
+    "rofi",
     "rofi-calc",
 
     # shell: eww compilation dependencies
