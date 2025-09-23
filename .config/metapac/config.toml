@@ -31,5 +31,6 @@ systemwide = true
     "programs/general",
     "programs/office",
     "programs/school",
+    "programs/development",
     "hosts/real-huawei-chromebook",
 ]
