@@ -247,10 +247,7 @@ return {
                 },
                 git = vim.tbl_extend("error", {
                     enabled = true, -- show git icons
-                    commit = "󰜘 ", -- used by git log
-                    staged = "●", -- staged changes. always overrides the type icons
-                    renamed = "",
-                    unmerged = " ",
+                    commit = "󰜘 ",
                 }, icons.git),
                 diagnostics = icons.diagnostics,
                 lsp = {

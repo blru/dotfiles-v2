@@ -34,10 +34,13 @@ return {
     },
     git = {
         ignored = "",
-        untracked = "?",
-        modified = "",
-        added = "",
-        deleted = "",
-        updated = "",
+        untracked = "n",
+        modified = "M",
+        added = "A",
+        deleted = "D",
+        updated = "U",
+        renamed = "R",
+        unmerged = "",
+        staged = "S",
     },
 }

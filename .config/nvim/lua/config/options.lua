@@ -29,3 +29,7 @@ vim.opt.spelllang = "en_us"
 
 -- Misc
 vim.opt.undofile = true
+
+-- Disabling Default File Explorer
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1

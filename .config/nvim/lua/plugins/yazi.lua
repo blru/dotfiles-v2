@@ -5,6 +5,7 @@ local keymaps_helpers = require("common.keymaps.helpers")
 return {
     "mikavilpas/yazi.nvim",
     event = "VeryLazy",
+    enabled = true,
     dependencies = {
         "folke/snacks.nvim",
         { "nvim-lua/plenary.nvim", lazy = true },
@@ -41,7 +42,4 @@ return {
             end,
         },
     },
-    init = function()
-        vim.g.loaded_netrwPlugin = 1
-    end,
 }

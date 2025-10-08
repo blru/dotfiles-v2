@@ -330,4 +330,11 @@ return {
             mode = { "n" },
         },
     },
+    nvim_tree = {
+        toggle = {
+            bind = "<leader>ee",
+            description = "Open Nvim Tree at the current file.",
+            mode = { "n", "v" },
+        },
+    },
 }
