@@ -13,7 +13,8 @@ input {
         repeat-rate 25
 
         xkb {
-            options "caps:escape, compose:ralt"
+            layout "us"
+            options "caps:escape, compose:ralt" // , grp:alt_shift_toggle"
         }
     }
 
@@ -40,7 +41,7 @@ input {
 }
 
 layout {
-    gaps 6
+    gaps 0
     center-focused-column "never"
     empty-workspace-above-first
     default-column-display "normal"
@@ -66,6 +67,7 @@ layout {
     }
 
     border {
+        off
         width 1
         active-color "#5b6078"
         inactive-color "#363a4f"
@@ -95,6 +97,7 @@ binds {
     Mod+W hotkey-overlay-title="Open the File Explorer" { spawn "kitty" "-e" "yazi"; }
     Mod+E hotkey-overlay-title="Open Drun" { spawn "rofi" "-show" "drun" ; }
     Mod+Shift+E hotkey-overlay-title="Open Calculator" { spawn "rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort"; }
+    Mod+Ctrl+E hotkey-overlay-title="Open Wallpaper Selector" { spawn "bash" "-c" "~/.scripts/desktop-environment/open-wallpaper-selector ~/pictures/wallpapers";}
     Mod+I hotkey-overlay-title="Pick color" { spawn "bash" "-c" "niri msg pick-color | tail -c 8 | wl-copy"; }
     Mod+T hotkey-overlay-title="Toggle menu bar" { spawn "eww" "open" "--toggle" "menu-bar"; }
 
@@ -231,6 +234,12 @@ layer-rule {
 }
 
 window-rule {
+    match is-floating=true
+
+    border {
+        on
+    }
+
     geometry-corner-radius 4
     clip-to-geometry true
 }
@@ -253,5 +262,5 @@ window-rule {
     match app-id=r#"^kitty$"#
 
     draw-border-with-background false
-    opacity 0.97
+    opacity 0.93
 }

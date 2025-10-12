@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+scripts_directory=~/.scripts/desktop-environment
+wallpaper_directory=$1
+original_wallpaper=$(swww query | awk -F'image: ' '{print $2}')
+preview_wallpaper="$scripts_directory/wallpaper-selector/preview-wallpaper"
+
+open_dmenu() {
+    rofi \
+        -dmenu \
+        -theme "catppuccin-bottom" \
+        -window-title "wallpaper-selector" \
+        -on-selection-changed "$preview_wallpaper '$wallpaper_directory/{entry}' '$original_wallpaper'" \
+        -on-menu-canceled "$preview_wallpaper '$original_wallpaper' '$original_wallpaper'"
+}
+
+available_wallpapers=$(ls --group-directories-first -p "$wallpaper_directory" | cat)
+selected_wallpaper=$(echo "$available_wallpapers" | open_dmenu)
+
+if [ $(echo $selected_wallpaper | grep -c '/') -eq "0" ]; then
+    $scripts_directory/change-wallpaper "${wallpaper_directory}/${selected_wallpaper}"
+else
+    $scripts_directory/open-wallpaper-selector "$wallpaper_directory/$selected_wallpaper"
+fi
