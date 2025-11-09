@@ -16,5 +16,6 @@ cargo install metapac
 ~/.scripts/setup/install-eww
 ~/.scripts/setup/setup-services
 ~/.scripts/setup/install-gtk-theme
+~/.scripts/setup/install-fcitx5-theme
 
 echo "Setup was successful. To enter the compositor, execute `uwsm start niri.desktop`"

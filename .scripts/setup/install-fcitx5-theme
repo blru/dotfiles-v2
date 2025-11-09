@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+tmp_dir=/tmp/fcitx5-theme-setup
+mkdir -p "$tmp_dir"
+cd "$tmp_dir"
+
+git clone https://github.com/catppuccin/fcitx5.git
+mkdir -p ~/.local/share/fcitx5/themes/
+cp -r ./fcitx5/src/* ~/.local/share/fcitx5/themes
+
+echo "Catppuccin fcitx5 theme was installed"
