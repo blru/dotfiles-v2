@@ -5,6 +5,7 @@ arch = [
     "wl-clipboard",
     "xdg-desktop-portal",
     "xdg-desktop-portal-gtk",
+    "xdg-desktop-portal-wlr",
     "gnome-keyring",
     "adwaita-qt5-git",
     "adwaita-qt6-git",
@@ -18,6 +19,13 @@ arch = [
     "swaync",
     "swayidle",
 
+    # IME
+    "fcitx5",
+    "fcitx5-configtool",
+    "fcitx5-pinyin-zhwiki",
+    "fcitx5-pinyin-zhwiki",
+    "fcitx5-chinese-addons",
+
     # fonts
     "noto-fonts",
     "noto-fonts-cjk",
@@ -26,6 +34,7 @@ arch = [
 
     # shell
     "rofi",
+    "rofimoji",
     "rofi-calc",
 
     # shell: eww compilation dependencies

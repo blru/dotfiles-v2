@@ -12,5 +12,6 @@ arch = [
     "peaclock",
     "libqalculate",
     "yt-dlp",
-    "7zip"
+    "7zip",
+    "trash-cli",
 ]

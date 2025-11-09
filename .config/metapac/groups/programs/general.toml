@@ -3,6 +3,7 @@ arch = [
     "keepassxc",
     "neovim",
     "mpv",
+    "loupe",
     "evince",
     "thunderbird"
 ]

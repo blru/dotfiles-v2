@@ -1,5 +1,6 @@
 arch = [
-    "flatpak"
+    "flatpak",
+    "obs-studio"
 ]
 
 flatpak = [
