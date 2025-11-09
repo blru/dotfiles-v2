@@ -5,6 +5,7 @@ return {
         "nvim-tree/nvim-web-devicons",
     },
     ft = { "markdown" },
+    enabled = false,
     ---@module 'render-markdown'
     ---@type render.md.UserConfig
     opts = {
