@@ -99,7 +99,7 @@ binds {
     Mod+Ctrl+Shift+E hotkey-overlay-title="Open Drun" { spawn "rofi" "-show" "drun" "-drun-show-actions" ; }
     Mod+Shift+E hotkey-overlay-title="Open Calculator" { spawn "rofi" "-show" "calc" "-modi" "calc" "-no-show-match" "-no-sort"; }
     Mod+Ctrl+E hotkey-overlay-title="Open Wallpaper Selector" { spawn "bash" "-c" "~/.scripts/desktop-environment/open-wallpaper-selector ~/pictures/wallpapers";}
-    Super+Period hotkey-overlay-title="Open Emoji Picker" { spawn "rofimoji" "--action" "copy";}
+    Super+SemiColon hotkey-overlay-title="Open Emoji Picker" { spawn "rofimoji" "--action" "copy";}
     Mod+I hotkey-overlay-title="Pick color" { spawn "bash" "-c" "niri msg pick-color | tail -c 8 | wl-copy"; }
     Mod+T hotkey-overlay-title="Toggle menu bar" { spawn "eww" "open" "--toggle" "menu-bar"; }
 
