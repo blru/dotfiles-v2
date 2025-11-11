@@ -25,7 +25,7 @@ if test -f /usr/share/nvm/init-nvm.sh; then
 
     nvm() {
         lazy_load_nvm
-        node $@
+        nvm $@
     }
 fi
 
