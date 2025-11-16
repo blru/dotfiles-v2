@@ -38,6 +38,7 @@
         :cursor "pointer"
         :class "logo"
         (label
+            :width 11 ; HACK: Properly size icon
             :text "󰣇"
 )))
 
@@ -107,6 +108,7 @@
             :class "notification-button"
             :tooltip "Open Notification Center"
             (label
+                :width 11 ; HACK: Properly size icon
                 :text "󰂚")
             )
     )
