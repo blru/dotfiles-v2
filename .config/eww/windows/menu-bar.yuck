@@ -1,5 +1,6 @@
 (defvar show_full_time false)
-(defvar show_alternative_date true)
+(defvar date_display_mode 1)
+(defvar format_by_date_display_modes `["%Y-%m-%d", "%b %d, %Y", "%a, %b %d, %Y"]`)
 (defpoll default_sink
     :interval "1s"
     `~/.scripts/desktop-environment/get-volume-info @DEFAULT_SINK@`)
@@ -73,11 +74,11 @@
         :class "date-time"
         (eventbox
             :cursor "pointer"
-            :onclick "${EWW_CMD} update show_alternative_date=${!show_alternative_date}"
-            :tooltip "Toggle Alternative Date"
+            :onclick "${EWW_CMD} update date_display_mode=${(date_display_mode + 1) % arraylength(format_by_date_display_modes)}"
+            :tooltip "Switch Between Date Display Mode"
             (label
                 :class "date"
-                :text {formattime(EWW_TIME, show_alternative_date ? "%b %d, %Y" : "%Y-%m-%d", "America/New_York")}))
+                :text {formattime(EWW_TIME, format_by_date_display_modes[date_display_mode], "America/New_York")}))
         (eventbox
             :cursor "pointer"
             :onclick "${EWW_CMD} update show_full_time=${!show_full_time}"
@@ -138,6 +139,12 @@
             :value "${floor(EWW_RAM.used_mem / EWW_RAM.total_mem * 100)}%"
             :class "memory"
             :tooltip "Memory")
+        (menu-bar-notification-area-indicator
+            :icon "󰔏"
+            :visible {EWW_TEMPS["AMDGPU_EDGE"] != ""}
+            :value "${EWW_TEMPS["AMDGPU_EDGE"]}°C"
+            :class "gpu-temperature"
+            :tooltip "GPU Temperature")
     )
 )
 

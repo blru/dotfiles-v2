@@ -9,9 +9,9 @@ arch = [
     "fzy",
     "playerctl",
     "reflector",
-    "peaclock",
     "libqalculate",
     "yt-dlp",
     "7zip",
     "trash-cli",
+    "fd",
 ]

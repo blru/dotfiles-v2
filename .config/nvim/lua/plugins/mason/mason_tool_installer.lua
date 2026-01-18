@@ -8,6 +8,7 @@ return {
             "clang-format",
             "prettier",
             "stylua",
+            "black",
 
             -- LSPs
             "bash-language-server",
@@ -19,6 +20,7 @@ return {
             "luau-lsp",
             "typescript-lanaguage-server",
             "zig",
+            "pyright",
 
             -- DAPs
             "codelldb",

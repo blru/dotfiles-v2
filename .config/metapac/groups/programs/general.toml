@@ -5,6 +5,5 @@ arch = [
     "mpv",
     "loupe",
     "evince",
-    "thunderbird",
-    "gnome-clocks"
 ]
+

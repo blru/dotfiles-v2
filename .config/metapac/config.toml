@@ -17,6 +17,7 @@ systemwide = true
     "programs/gaming",
     "programs/development",
     "programs/development-plus",
+    "programs/productivity",
     "programs/office",
     "programs/testing",
     "programs/media",
@@ -34,5 +35,6 @@ systemwide = true
     "programs/office",
     "programs/school",
     "programs/development",
+    "programs/productivity",
     "hosts/real-huawei-chromebook",
 ]

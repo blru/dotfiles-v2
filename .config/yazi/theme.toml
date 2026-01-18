@@ -1,13 +1,25 @@
+# If the user's terminal is in dark mode, Yazi will load `theme-dark.toml` on startup; otherwise, `theme-light.toml`.
+# You can override any parts of them that are not related to the dark/light mode in your own `theme.toml`.
+
+# If you want to dynamically override their content based on dark/light mode, you can specify two different flavors
+# for dark and light modes under `[flavor]`, and do so in those flavors instead.
 "$schema" = "https://yazi-rs.github.io/schemas/theme.json"
 
-# foldmethod=marker
+# vim:fileencoding=utf-8:foldmethod=marker
 
 # : Flavor {{{
 
-# Maybe in the future!
-# [flavor]
-# dark  = ""
-# light = ""
+[flavor]
+dark  = ""
+light = ""
+
+# : }}}
+
+
+# : App {{{
+
+[app]
+overall = {}
 
 # : }}}
 
@@ -16,10 +28,6 @@
 
 [mgr]
 cwd = { fg = "cyan" }
-
-# Hovered
-hovered         = { reversed = true }
-preview_hovered = { underline = true }
 
 # Find
 find_keyword  = { fg = "yellow", bold = true, italic = true, underline = true }
@@ -37,11 +45,11 @@ marker_selected = { fg = "lightyellow", bg = "lightyellow" }
 # Count
 count_copied   = { fg = "white", bg = "green" }
 count_cut      = { fg = "white", bg = "red" }
-count_selected = { fg = "white", bg = "yellow" }
+count_selected = { fg = "black", bg = "yellow" }
 
 # Border
 border_symbol = "│"
-border_style  = { fg = "#313134" } # oldworld.nvim's default gray3
+border_style  = { fg = "gray" }
 
 # Highlighting
 syntect_theme = ""
@@ -65,16 +73,27 @@ sep_outer = { open = "", close = "" }
 # : Mode {{{
 
 [mode]
-normal_main = { bg = "blue", fg = "black", bold = true }
-normal_alt  = { bg = "black", fg = "blue" }
+normal_main = { bg = "blue", bold = true }
+normal_alt  = { fg = "blue", bg = "gray" }
 
 # Select mode
-select_main = { bg = "red", fg = "black", bold = true }
-select_alt  = { bg = "black", fg = "red" }
+select_main = { bg = "red", bold = true }
+select_alt  = { fg = "red", bg = "gray" }
 
 # Unset mode
-unset_main = { bg = "red", fg = "black", bold = true }
-unset_alt  = { bg = "black", fg = "red" }
+unset_main = { bg = "red", bold = true }
+unset_alt  = { fg = "red", bg = "gray" }
+
+# : }}}
+
+
+# : Indicator of hovered file {{{
+
+[indicator]
+parent  = { reversed = true }
+current = { reversed = true }
+preview = { underline = true }
+padding = { open = "", close = "" }
 
 # : }}}
 
@@ -95,8 +114,8 @@ perm_exec  = { fg = "cyan" }
 
 # Progress
 progress_label  = { bold = true }
-progress_normal = { fg = "blue", bg = "black" }
-progress_error  = { fg = "red", bg = "black" }
+progress_normal = { fg = "green", bg = "black" }
+progress_error  = { fg = "yellow", bg = "red" }
 
 # : }}}
 
@@ -120,7 +139,7 @@ separator_style = { fg = "darkgray" }
 [confirm]
 border     = { fg = "blue" }
 title      = { fg = "blue" }
-content    = {}
+body       = {}
 list       = {}
 btn_yes    = { reversed = true }
 btn_no     = {}
@@ -198,7 +217,7 @@ icon_command = ""
 [tasks]
 border  = { fg = "blue" }
 title   = {}
-hovered = { fg = "magenta", underline = true }
+hovered = { fg = "magenta", bold = true }
 
 # : }}}
 
@@ -219,32 +238,24 @@ footer  = { fg = "black", bg = "white" }
 
 [filetype]
 rules = [
-	# Images
+	# Image
 	{ mime = "image/*", fg = "yellow" },
-
 	# Media
 	{ mime = "{audio,video}/*", fg = "magenta" },
-
-	# Archives
+	# Archive
 	{ mime = "application/{zip,rar,7z*,tar,gzip,xz,zstd,bzip*,lzma,compress,archive,cpio,arj,xar,ms-cab*}", fg = "red" },
-
-	# Documents
+	# Document
 	{ mime = "application/{pdf,doc,rtf}", fg = "cyan" },
-
-	# Empty files
-	# { mime = "inode/empty", fg = "red" },
-
-	# Special files
-	{ name = "*", is = "orphan", bg = "red" },
-	{ name = "*", is = "exec"  , fg = "green" },
-
-	# Dummy files
-	{ name = "*", is = "dummy", bg = "red" },
-	{ name = "*/", is = "dummy", bg = "red" },
-
+	# Virtual file system
+	{ mime = "vfs/{absent,stale}", fg = "gray" },
+	# Special file
+	{ url = "*", is = "orphan", bg = "red" },
+	{ url = "*", is = "exec"  , fg = "green" },
+	# Dummy file
+	{ url = "*", is = "dummy", bg = "red" },
+	{ url = "*/", is = "dummy", bg = "red" },
 	# Fallback
-	# { name = "*", fg = "white" },
-	{ name = "*/", fg = "blue" }
+	{ url = "*/", fg = "blue" }
 ]
 
 # : }}}

@@ -51,11 +51,34 @@ return {
                 },
             },
             ["cssls"] = {},
-            ["emmet_language_server"] = {},
+            ["emmet_ls"] = {
+                filetypes = {
+                    "css",
+                    "eruby",
+                    "html",
+                    "javascript",
+                    "javascriptreact",
+                    "less",
+                    "sass",
+                    "scss",
+                    "svelte",
+                    "pug",
+                    "typescriptreact",
+                    "vue",
+                },
+                init_options = {
+                    html = {
+                        options = {
+                            -- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+                        },
+                    },
+                },
+            },
             ["jsonls"] = {},
             ["clangd"] = {},
             ["zls"] = {},
             ["ts_ls"] = {},
+            ["pyright"] = {},
         }
 
         for server, configuration in pairs(language_servers) do

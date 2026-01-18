@@ -28,6 +28,9 @@ return {
             -- Clang Format
             c = { "clang-format" },
             cpp = { "clang-format" },
+
+            -- Black
+            python = { "black" },
         },
         format_on_save = {},
         default_format_opts = {

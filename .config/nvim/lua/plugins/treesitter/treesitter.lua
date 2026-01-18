@@ -26,9 +26,11 @@ return {
             "toml",
             "typescript",
             "zig",
+            "python",
             "yuck",
             "bash",
             "mermaid",
+            "ebnf",
         }
 
         nvim_treesitter.install(languages):wait(10 * 60 * 1000)

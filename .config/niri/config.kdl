@@ -6,6 +6,10 @@
 screenshot-path "~/pictures/screenshots/%Y-%m-%d--%H-%M-%S.png"
 prefer-no-csd
 
+environment {
+    ELECTRON_OZONE_PLATFORM_HINT "auto"
+}
+
 input {
     keyboard {
         track-layout "global"
@@ -80,6 +84,7 @@ layout {
 }
 
 animations {
+    // off
     slowdown 0.5
 }
 
@@ -184,10 +189,11 @@ binds {
     Mod+V { toggle-window-floating; }
     Mod+Shift+V { switch-focus-between-floating-and-tiling; }
 
-    // Screenshots
+    // Screenshots & Screencasts
     Print { screenshot; }
     Ctrl+Print { screenshot-screen; }
     Alt+Print { screenshot-window; }
+    Mod+Print { set-dynamic-cast-window; }
 
     // Audio sink controls (speakers)
     XF86AudioRaiseVolume allow-when-locked=true { spawn "wpctl" "set-volume" "@DEFAULT_AUDIO_SINK@" "1%+"; }
@@ -207,6 +213,37 @@ binds {
     XF86AudioPlay { spawn "playerctl" "play-pause"; }
     XF86AudioPrev { spawn "playerctl" "previous"; }
     XF86AudioNext { spawn "playerctl" "next"; }
+}
+
+recent-windows {
+    // off
+    debounce-ms 150
+
+    open-delay-ms 0
+
+    highlight {
+        active-color "#92a2d5"
+        urgent-color "#ea83bf"
+        padding 16
+        corner-radius 4
+    }
+
+    previews {
+        max-height 320
+        max-scale 0.5
+    }
+
+    binds {
+        Alt+Tab         { next-window; }
+        Alt+Shift+Tab   { previous-window; }
+        Alt+grave       { next-window     filter="app-id"; }
+        Alt+Shift+grave { previous-window filter="app-id"; }
+
+        Mod+Tab         { next-window; }
+        Mod+Shift+Tab   { previous-window; }
+        Mod+grave       { next-window     filter="app-id"; }
+        Mod+Shift+grave { previous-window filter="app-id"; }
+    }
 }
 
 overview {
@@ -259,9 +296,9 @@ window-rule {
 }
 
 // Transparent terminal
-window-rule {
+/-window-rule {
     match app-id=r#"^kitty$"#
 
     draw-border-with-background false
-    opacity 0.90
+    opacity 0.94
 }

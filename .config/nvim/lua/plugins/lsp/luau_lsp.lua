@@ -1,5 +1,6 @@
 return {
     "lopi-py/luau-lsp.nvim",
+    ft = { "luau" },
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
@@ -21,7 +22,7 @@ return {
             port = 3667,
         },
     },
-    config = function(opts)
+    config = function(_, opts)
         require("luau-lsp").config(opts)
 
         vim.lsp.config("luau-lsp", {

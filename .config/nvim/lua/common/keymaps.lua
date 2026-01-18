@@ -337,4 +337,11 @@ return {
             mode = { "n", "v" },
         },
     },
+    markview = {
+        toggle = {
+            bind = "<leader>em",
+            description = "Toggle Markview",
+            mode = { "n", "v" },
+        },
+    },
 }

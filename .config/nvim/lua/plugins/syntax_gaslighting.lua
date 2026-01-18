@@ -1,7 +1,7 @@
 return {
     "NotAShelf/syntax-gaslighting.nvim",
     event = { "BufReadPre", "BufNewFile" },
-    enabled = true,
+    enabled = false,
     opts = {
         -- Set the chance of gaslighting per line (1-100%)
         gaslighting_chance = 1, -- Default is 5%

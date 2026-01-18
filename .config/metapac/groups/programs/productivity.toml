@@ -1,0 +1,8 @@
+arch = [
+    "thunderbird",
+    "gnome-clocks",
+]
+
+flatpak = [
+    "com.super_productivity.SuperProductivity"
+]
