@@ -1,8 +1,8 @@
---- @alias keymap { bind: string, description: string | nil, mode: string[] | nil }
+--- @alias Keymap { bind: string, description: string | nil, mode: string[] | nil }
 
 local M = {}
 
----@param keymap keymap
+---@param keymap Keymap
 ---@param rhs string | function | nil
 ---@param additional_options table | nil
 function M.make_lazy(keymap, rhs, additional_options)
@@ -21,7 +21,7 @@ function M.make_lazy(keymap, rhs, additional_options)
 end
 
 --- Creates args for vim.keymap.set
----@param keymap keymap
+---@param keymap Keymap
 ---@param rhs string | function
 ---@param additional_options table | nil
 function M.make_map_args(keymap, rhs, additional_options)
@@ -40,7 +40,7 @@ function M.make_map_args(keymap, rhs, additional_options)
 end
 
 ---Wrapper around vim.keymap.set
----@param keymap keymap
+---@param keymap Keymap
 ---@param rhs string | function
 ---@param additional_options table | nil
 function M.map(keymap, rhs, additional_options)
