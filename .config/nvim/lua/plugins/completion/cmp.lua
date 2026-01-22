@@ -32,8 +32,10 @@ return {
                 end,
             },
             window = {
-                -- completion = cmp.config.window.bordered(),
-                -- documentation = cmp.config.window.bordered(),
+                completion = cmp.config.window.bordered({
+                    border = "none",
+                    winhighlight = "Normal:Pmenu",
+                }),
             },
             mapping = cmp.mapping.preset.insert({
                 [keymaps.common.list_up.bind] = cmp.mapping.select_prev_item(),

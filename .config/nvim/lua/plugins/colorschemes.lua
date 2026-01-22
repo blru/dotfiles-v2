@@ -30,8 +30,16 @@ local theme_plugins = {
         "catppuccin/nvim",
         name = "catppuccin",
         priority = 1000,
-        opts = {},
-        init = function()
+        opts = {
+            custom_highlights = function(colors)
+                return {
+                    Pmenu = { bg = colors.surface0 },
+                }
+            end,
+        },
+        config = function(_, opts)
+            require("catppuccin").setup(opts)
+
             vim.cmd.colorscheme("catppuccin-mocha")
         end,
     },
