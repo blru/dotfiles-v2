@@ -44,6 +44,13 @@ return {
                 },
             },
         },
+        picker = {
+            sources = {
+                explorer = {
+                    hidden = true,
+                },
+            },
+        },
     },
     keys = {
         keymaps_helpers.make_lazy(keymaps.nvim_tree.toggle, function()
