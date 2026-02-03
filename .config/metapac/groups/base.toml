@@ -10,6 +10,7 @@ arch = [
 
     # networking
     "networkmanager",
+    "nm-connection-editor",
 
     # general utilities
     "sudo",

@@ -1,5 +1,4 @@
 arch = [
     "intel-ucode",
     "brightnessctl",
-    "nm-connection-editor"
 ]
