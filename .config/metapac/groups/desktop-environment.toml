@@ -12,6 +12,7 @@ arch = [
     "adwaita-qt6-git",
     "swaylock",
     "lemurs",
+    "kanshi",
 
     # services
     "polkit-kde-agent",

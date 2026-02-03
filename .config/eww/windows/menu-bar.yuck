@@ -9,7 +9,7 @@
     `~/.scripts/desktop-environment/get-volume-info @DEFAULT_SOURCE@`)
 
 (defwindow menu-bar
-    :monitor {["<primary>", 0]}
+    :monitor {["HDMI-A-1", "<primary>", 0]}
     :geometry (geometry
             :x "0px"
             :y "0px"
